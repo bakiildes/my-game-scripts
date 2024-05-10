@@ -69,7 +69,7 @@ public class playerMovement : MonoBehaviour
             StopCrouching();
         }
 
-        if (Input.GetButtonDown("Sprint") && currentStamina > 0 && currentStamina >= maxStamina)
+        if (Input.GetButtonDown("Sprint") && currentStamina > 0 && currentStamina >= 30)
         {
             Speed = sprintSpeed;
             isSprinting = true;
@@ -77,7 +77,7 @@ public class playerMovement : MonoBehaviour
 
         }
 
-        if (isSprinting && currentStamina > 0) // Continuously drain stamina while sprinting
+        if (isSprinting && currentStamina > 0 && (x != 0 || z != 0))   // Continuously drain stamina while sprinting
         {
             currentStamina -= staminaDrainRate * Time.deltaTime;
         }
